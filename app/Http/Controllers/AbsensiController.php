@@ -23,7 +23,7 @@ class AbsensiController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/')->with('error', $validator->errors()->first());
+            return redirect()->back()->with('error', $validator->errors()->first());
         }
 
         $checkAbsenToday = Absensi::where('anggota_id', $request->anggota_id)->whereDate('created_at', date('Y-m-d'))->first();
