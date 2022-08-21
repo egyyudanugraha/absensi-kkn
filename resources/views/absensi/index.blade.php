@@ -16,7 +16,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="first-name-vertical">Nama</label>
-                                        <select class="choices form-select" name="anggota_id">
+                                        <select class="choices form-select" name="anggota_id" required>
                                           <option> -- Pilih anggota -- </option>
                                           @foreach ($anggota as $a)
                                             <option value="{{ $a->id }}">{{ $a->nama }}</option>
