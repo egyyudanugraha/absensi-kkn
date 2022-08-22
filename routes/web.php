@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 
 // Route::get('/', [AbsensiController::class, 'index']);
 // Route::post('/', [AbsensiController::class, 'store']);
@@ -47,7 +47,7 @@ Route::middleware(['auth', 'checklevel:bendahara'])->group(function(){
 });
 
 Route::middleware(['auth', 'checklevel:sekretaris'])->group(function(){
-  Route::get('/{id}', [AbsensiController::class,'index']);
+  Route::get('/absensi/{id}', [AbsensiController::class,'index']);
 });
 
 Route::middleware(['auth', 'checklevel:bendahara,sekretaris'])->group(function(){

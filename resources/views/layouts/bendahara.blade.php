@@ -70,6 +70,14 @@
                               <span>Pengeluaran</span>
                           </a>
                       </li>
+
+                      <li
+                          class="sidebar-item">
+                          <a href="/logout" class='sidebar-link'>
+                              <i class="bi bi-power"></i>
+                              <span>Keluar</span>
+                          </a>
+                      </li>
                   </ul>
               </div>
             </div>
