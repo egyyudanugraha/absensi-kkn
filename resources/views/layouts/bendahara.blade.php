@@ -16,6 +16,9 @@
 <link rel="stylesheet" href="{{ asset('assets/extensions/simple-datatables/style.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/pages/simple-datatables.css') }}">
 
+<link rel="stylesheet" href="{{ asset('assets/extensions/choices.js/public/assets/styles/choices.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/extensions/toastify-js/src/toastify.css') }}">
+
 </head>
 
 <body>
@@ -53,7 +56,7 @@
                       </li>
                       
                       <li
-                          class="sidebar-item {{ request()->is('kas/pemasukan') ? 'active' : '' }}">
+                          class="sidebar-item {{ request()->is('kas/pemasukan*') ? 'active' : '' }}">
                           <a href="/kas/pemasukan" class='sidebar-link'>
                               <i class="bi bi-stack"></i>
                               <span>Pemasukan</span>
@@ -61,18 +64,10 @@
                       </li>
                       
                       <li
-                          class="sidebar-item {{ request()->is('kas/pengeluaran') ? 'active' : '' }}">
+                          class="sidebar-item {{ request()->is('kas/pengeluaran*') ? 'active' : '' }}">
                           <a href="/kas/pengeluaran" class='sidebar-link'>
                               <i class="bi bi-collection-fill"></i>
                               <span>Pengeluaran</span>
-                          </a>
-                      </li>
-                      
-                      <li
-                          class="sidebar-item {{ request()->is('kas/denda') ? 'active' : '' }}">
-                          <a href="#" class='sidebar-link'>
-                              <i class="bi bi-grid-1x2-fill"></i>
-                              <span>Denda</span>
                           </a>
                       </li>
                   </ul>
@@ -85,18 +80,7 @@
                   <i class="bi bi-justify fs-3"></i>
               </a>
           </header>
-            @yield('content')          
-          <footer>
-              <div class="footer clearfix mb-0 text-muted">
-                  <div class="float-start">
-                      <p>2021 &copy; Mazer</p>
-                  </div>
-                  <div class="float-end">
-                      <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                              href="https://saugi.me">Saugi</a></p>
-                  </div>
-              </div>
-          </footer>
+            @yield('content')        
         </div>
     </div>
     <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
@@ -104,6 +88,9 @@
     
 <script src="{{ asset('assets/extensions/simple-datatables/umd/simple-datatables.js') }}"></script>
 <script src="{{ asset('assets/js/pages/simple-datatables.js') }}"></script>
+
+<script src="{{ asset('assets/extensions/choices.js/public/assets/scripts/choices.js') }}"></script>
+<script src="{{ asset('assets/js/pages/form-element-select.js') }}"></script>
 
 </body>
 

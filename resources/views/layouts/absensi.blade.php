@@ -20,19 +20,6 @@
     <div id="app">
         <div id="main" class="layout-horizontal">
             @yield('content')
-            <footer>
-                <div class="container">
-                    <div class="footer clearfix mb-0 text-muted">
-                        <div class="float-start">
-                            <p>2022 &copy; Mazer</p>
-                        </div>
-                        <div class="float-end">
-                            <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="https://github.com/egyyudanugraha">Yuda</a></p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 

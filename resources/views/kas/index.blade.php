@@ -91,4 +91,23 @@
     </div>
   </div>
 </div>
+
+<script src="assets/extensions/toastify-js/src/toastify.js"></script>
+@if(session()->has('success'))
+  <script>
+    Toastify({
+        text: "{{ session()->get('success') }}",
+        duration: 3000,
+        backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+    }).showToast();
+  </script>
+@elseif(session()->has('error'))
+  <script>
+    Toastify({
+        text: "{{ session()->get('error') }}",
+        duration: 3000,
+        backgroundColor: "linear-gradient(to right, #de0b0b, #e6c732)",
+    }).showToast();
+  </script>
+@endif
 @endsection

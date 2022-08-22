@@ -3,6 +3,7 @@
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KasController;
+use App\Models\Kas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +33,19 @@ Route::middleware(['guest'])->group(function(){
 
 Route::middleware(['auth', 'checklevel:bendahara'])->group(function(){
   Route::get('/kas', [KasController::class, 'index']);
-  Route::get('/kas/pemasukan', [KasController::class, 'create']);
+  Route::get('/kas/pemasukan', [KasController::class, 'pemasukan'])->name('pemasukan');
+  Route::get('/kas/pemasukan/create', [KasController::class, 'tambahPemasukan'])->name('tambah-pemasukan');
+  Route::post('/kas/pemasukan/store', [KasController::class, 'pemasukanStore'])->name('store-pemasukan');
+  Route::get('/kas/pemasukan/edit/{id}', [KasController::class, 'pemasukanEdit'])->name('edit-pemasukan');
+  Route::put('/kas/pemasukan/update/{id}', [KasController::class, 'pemasukanUpdate'])->name('update-pemasukan');
+  Route::delete('/kas/pemasukan/delete/{id}', [KasController::class, 'pemasukanDelete'])->name('hapus-pemasukan');
+
+  Route::get('/kas/pengeluaran', [KasController::class, 'pengeluaran'])->name('pengeluaran');
+  Route::get('/kas/pengeluaran/create', [KasController::class, 'tambahPengeluaran'])->name('tambah-pengeluaran');
+  Route::post('/kas/pengeluaran/store', [KasController::class, 'pengeluaranStore'])->name('store-pengeluaran');
+  Route::get('/kas/pengeluaran/edit/{id}', [KasController::class, 'pengeluaranEdit'])->name('edit-pengeluaran');
+  Route::put('/kas/pengeluaran/update/{id}', [KasController::class, 'pengeluaranUpdate'])->name('update-pengeluaran');
+  Route::delete('/kas/pengeluaran/delete/{id}', [KasController::class, 'pengeluaranDelete'])->name('hapus-pengeluaran');
 });
 
 Route::middleware(['auth', 'checklevel:bendahara,sekretaris'])->group(function(){

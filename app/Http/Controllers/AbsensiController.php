@@ -11,7 +11,7 @@ class AbsensiController extends Controller
 {
     public function index()
     {
-        $anggota = Anggota::all();
+        $anggota = Anggota::where('nim', '!=', 1912)->get();
         return view('absensi.index', compact('anggota'));
     }
 
