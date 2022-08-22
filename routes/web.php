@@ -4,6 +4,7 @@ use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KasController;
+use App\Models\Absensi;
 use App\Models\Kas;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/home', [HomeController::class, 'index']);
 
-Route::get('/', [AbsensiController::class, 'index']);
-Route::post('/', [AbsensiController::class, 'store']);
+// Route::get('/', [AbsensiController::class, 'index']);
+// Route::post('/', [AbsensiController::class, 'store']);
 
 Route::middleware(['guest'])->group(function(){
   Route::get('/login', [AuthController::class, 'view_login'])->name('view_login');
@@ -43,6 +44,10 @@ Route::middleware(['auth', 'checklevel:bendahara'])->group(function(){
   Route::get('/kas/pengeluaran/edit/{id}', [KasController::class, 'pengeluaranEdit'])->name('edit-pengeluaran');
   Route::put('/kas/pengeluaran/update/{id}', [KasController::class, 'pengeluaranUpdate'])->name('update-pengeluaran');
   Route::delete('/kas/pengeluaran/delete/{id}', [KasController::class, 'pengeluaranDelete'])->name('hapus-pengeluaran');
+});
+
+Route::middleware(['auth', 'checklevel:sekretaris'])->group(function(){
+  Route::get('/{id}', [AbsensiController::class,'index']);
 });
 
 Route::middleware(['auth', 'checklevel:bendahara,sekretaris'])->group(function(){

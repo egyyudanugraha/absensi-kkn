@@ -9,10 +9,24 @@ use Illuminate\Support\Facades\Validator;
 
 class AbsensiController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        $anggota = Anggota::where('nim', '!=', 1912)->get();
-        return view('absensi.index', compact('anggota'));
+        // $anggota = Anggota::where('nim', '!=', 1912)->get();
+        // return view('absensi.index', compact('anggota'));
+
+        $anggota = Anggota::where('id', $id)->get()->firstOrFail();
+
+        $checkAbsenToday = Absensi::where('anggota_id', $id)->whereDate('created_at', date('Y-m-d'))->first();
+        if ($checkAbsenToday) {
+            return view('absensi.gagal', compact('anggota'));
+        }
+
+        Absensi::create([
+            'status' => 'hadir',
+            'anggota_id' => $anggota->id,
+        ]);
+
+        return view('absensi.sukses', compact('anggota'));
     }
 
     public function store(Request $request)
