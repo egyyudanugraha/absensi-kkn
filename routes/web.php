@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KasController;
 use App\Models\Kas;
 use Illuminate\Support\Facades\Route;
@@ -17,11 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function() {
-  return response()->json([
-    'data' => 'belum ada',
-  ]);
-});
+Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/', [AbsensiController::class, 'index']);
 Route::post('/', [AbsensiController::class, 'store']);

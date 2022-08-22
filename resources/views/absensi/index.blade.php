@@ -1,7 +1,6 @@
 @extends('../layouts/absensi')
 @section('content')
 <div class="content-wrapper container">    
-
     <div class="page-heading mt-5">
         <h3>Absensi KKN Desa Suradita</h3>
     </div>
@@ -63,7 +62,8 @@
             </div>
         </div>
       </div>
-  </div>
+    </div>
+</div>
 
   <script src="assets/extensions/toastify-js/src/toastify.js"></script>
   <script>
