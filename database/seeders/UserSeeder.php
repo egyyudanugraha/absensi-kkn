@@ -17,21 +17,14 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Sekretaris',
-            'email' => 'sekretaris@kkn-suradita.com',
+            'username' => 'sekretaris',
             'password' => bcrypt('suradita22'),
             'role' => 'sekretaris',
         ]);
 
         User::create([
-            'name' => 'Ketua',
-            'email' => 'ketua@kkn-suradita.com',
-            'password' => bcrypt('suradita22'),
-            'role' => 'ketua',
-        ]);
-
-        User::create([
             'name' => 'Bendahara',
-            'email' => 'bendahara@kkn-suradita.com',
+            'username' => 'bendahara',
             'password' => bcrypt('suradita22'),
             'role' => 'bendahara',
         ]);

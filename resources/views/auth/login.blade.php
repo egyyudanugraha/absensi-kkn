@@ -34,7 +34,7 @@
             <form action="{{ route('login_post') }}" method="POST">
             @csrf
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="email" name="email" class="form-control form-control-xl @error('email') is-invalid @enderror" value="{{ old('email') }}"  placeholder="Email" autofocus required>
+                    <input type="text" name="username" class="form-control form-control-xl @error('username') is-invalid @enderror" value="{{ old('username') }}"  placeholder="Username" autofocus required>
                     <div class="form-control-icon">
                         <i class="bi bi-person"></i>
                     </div>
