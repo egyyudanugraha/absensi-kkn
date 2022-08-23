@@ -59,7 +59,7 @@
                 <tr>
                     <td>{{ $item->anggota->nama }}</td>
                     <td><span class="badge bg-{{ $item->status != 'hadir' ? 'danger' : 'success' }}">{{ ucfirst($item->status) }}</span></td>
-                    <td>{{ date_format($item->created_at,'M d, Y') }}</td>
+                    <td>{{ date_format($item->created_at,'M d, H:i') }}</td>
                 </tr>
                 @endforeach
               </tbody>
@@ -71,7 +71,7 @@
           Riwayat Pemasukan
       </div>
       <div class="card-body">
-          <table class="table table-striped" id="table1">
+          <table class="table table-striped" id="table2">
               <thead>
                   <tr>
                       <th>Nama</th>
@@ -84,7 +84,7 @@
                 <tr>
                     <td>{{ $item->anggota->nama }}</td>
                     <td>{{ rupiah($item->nominal) }}</td>
-                    <td>{{ date_format($item->created_at,'M d, Y') }}</td>
+                    <td>{{ date_format($item->created_at,'M d, H:i') }}</td>
                 </tr>
                 @endforeach
               </tbody>
@@ -96,7 +96,7 @@
           Riwayat Pengeluaran
       </div>
       <div class="card-body">
-          <table class="table table-striped" id="table1">
+          <table class="table table-striped" id="table3">
               <thead>
                   <tr>
                       <th>Keterangan</th>
@@ -109,7 +109,7 @@
                 <tr>
                     <td>{{ strlen($item->keterangan) > 30 ? substr($item->keterangan, 0, 30) . '...' : $item->keterangan }}</td>
                     <td>{{ rupiah($item->nominal) }}</td>
-                    <td>{{ date_format($item->created_at,'M d, Y') }}</td>
+                    <td>{{ date_format($item->created_at,'M d, H:i') }}</td>
                 </tr>
                 @endforeach
               </tbody>

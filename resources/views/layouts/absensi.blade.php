@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="{{ asset('assets/css/shared/iconly.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/extensions/choices.js/public/assets/styles/choices.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/extensions/toastify-js/src/toastify.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/pages/datatables.css') }}">
 
 </head>
 
@@ -28,6 +30,13 @@
     <script src="{{ asset('assets/extensions/choices.js/public/assets/scripts/choices.js') }}"></script>
     
 <script src="{{ asset('assets/js/pages/form-element-select.js') }}"></script>
+<script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
+<script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+<script>
+    let jquery_datatable = $("#table1").DataTable();
+    let jquery_datatable2 = $("#table2").DataTable();
+    let jquery_datatable3 = $("#table3").DataTable();
+</script>
 </body>
 
 </html>
