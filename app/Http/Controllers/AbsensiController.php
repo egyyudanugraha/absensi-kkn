@@ -45,10 +45,6 @@ class AbsensiController extends Controller
             return redirect()->back()->with('error', 'Anda sudah absen hari ini');
         }
 
-        if (date('H') > '10' && date('H') < '21') {
-            return redirect()->back()->with('error', 'Absensi dibuka pukul 07.00 - 17.00');
-        }
-
         Absensi::create([
             'status' => $request->status,
             'anggota_id' => $request->anggota_id,
