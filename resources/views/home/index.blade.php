@@ -50,7 +50,7 @@
               <thead>
                   <tr>
                       <th>Nama</th>
-                      <th>status</th>
+                      <th>Status</th>
                       <th>Tanggal</th>
                   </tr>
               </thead>
