@@ -176,6 +176,13 @@ class AnggotaSeeder extends Seeder
                 'nim' => '1986208032',
                 'prodi' => 'Pend. Agama Islam',
                 'updated_at' => now()
+            ],
+            [
+                'created_at' => now(),
+                'nama' => 'Universitas Muhammadiyah Tangerang',
+                'nim' => '1912',
+                'prodi' => 'UMT',
+                'updated_at' => now()
             ]
         ];
 
