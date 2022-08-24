@@ -49,17 +49,17 @@
           <table class="table table-striped" id="table1">
               <thead>
                   <tr>
+                      <th>Tanggal</th>
                       <th>Nama</th>
                       <th>Status</th>
-                      <th>Tanggal</th>
                   </tr>
               </thead>
               <tbody>
                 @foreach ($absensi as $item)
                 <tr>
+                    <td>{{ date_format($item->created_at,'M d, H:i') }}</td>
                     <td>{{ $item->anggota->nama }}</td>
                     <td><span class="badge bg-{{ $item->status != 'hadir' ? 'danger' : 'success' }}">{{ ucfirst($item->status) }}</span></td>
-                    <td>{{ date_format($item->created_at,'M d, H:i') }}</td>
                 </tr>
                 @endforeach
               </tbody>

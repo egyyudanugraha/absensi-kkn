@@ -15,7 +15,7 @@ class HomeController extends Controller
         $pengeluaran = Pengeluaran::all();
         $totalPengeluaran = Pengeluaran::sum('nominal');
         $saldo = Kas::sum('nominal') - $totalPengeluaran;
-        $absensi = Absensi::with('anggota')->orderby('created_at', 'DESC')->get();
+        $absensi = Absensi::with('anggota')->orderby('created_at', 'ASC')->get();
         return view('home.index', compact('kas', 'pengeluaran', 'absensi', 'saldo', 'totalPengeluaran'));
     }
 }
