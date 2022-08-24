@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KasController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,5 @@ Route::middleware(['auth', 'checklevel:sekretaris'])->group(function(){
 Route::middleware(['auth', 'checklevel:bendahara,sekretaris'])->group(function(){
   Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+
+URL::forceScheme('https');
