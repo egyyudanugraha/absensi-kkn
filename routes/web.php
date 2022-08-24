@@ -49,5 +49,3 @@ Route::middleware(['auth', 'checklevel:sekretaris'])->group(function(){
 Route::middleware(['auth', 'checklevel:bendahara,sekretaris'])->group(function(){
   Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
-
-URL::forceScheme('https');
