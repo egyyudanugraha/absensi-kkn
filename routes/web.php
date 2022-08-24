@@ -5,7 +5,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KasController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +16,6 @@ use Illuminate\Support\Facades\URL;
 | contains the "web" middleware group. Now create something great!
 |
 */
-if (env('APP_ENV') === 'production') {
-  URL::forceSchema('https');
-}
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
