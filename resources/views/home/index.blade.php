@@ -57,7 +57,7 @@
               <tbody>
                 @foreach ($absensi as $item)
                 <tr>
-                    <td>{{ date_format($item->created_at,'D, d M, H:i') }}</td>
+                    <td>{{ date_format($item->created_at,'Y-m-d, D H:i') }}</td>
                     <td>{{ $item->anggota->nama }}</td>
                     <td><span class="badge bg-{{ $item->status != 'hadir' ? 'danger' : 'success' }}">{{ ucfirst($item->status) }}</span></td>
                 </tr>
@@ -84,7 +84,7 @@
                 <tr>
                     <td>{{ $item->anggota->nama }}</td>
                     <td>{{ rupiah($item->nominal) }}</td>
-                    <td>{{ date_format($item->created_at,'D, d M, H:i') }}</td>
+                    <td>{{ date_format($item->created_at,'Y-m-d, D H:i') }}</td>
                 </tr>
                 @endforeach
               </tbody>
@@ -109,7 +109,7 @@
                 <tr>
                     <td>{{ strlen($item->keterangan) > 30 ? substr($item->keterangan, 0, 30) . '...' : $item->keterangan }}</td>
                     <td>{{ rupiah($item->nominal) }}</td>
-                    <td>{{ date_format($item->created_at,'D, d M, H:i') }}</td>
+                    <td>{{ date_format($item->created_at,'Y-m-d, D H:i') }}</td>
                 </tr>
                 @endforeach
               </tbody>
@@ -118,23 +118,4 @@
     </div>
   </div>
 </div>
-
-<script src="assets/extensions/toastify-js/src/toastify.js"></script>
-@if(session()->has('success'))
-  <script>
-    Toastify({
-        text: "{{ session()->get('success') }}",
-        duration: 3000,
-        backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-    }).showToast();
-  </script>
-@elseif(session()->has('error'))
-  <script>
-    Toastify({
-        text: "{{ session()->get('error') }}",
-        duration: 3000,
-        backgroundColor: "linear-gradient(to right, #de0b0b, #e6c732)",
-    }).showToast();
-  </script>
-@endif
 @endsection
