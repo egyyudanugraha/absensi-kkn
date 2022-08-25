@@ -98,7 +98,6 @@
 <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
 <script>
     for (let i = 1; i < 3; i++) {
-        const element = array[i];
         $(`#table${i}`).DataTable({
             order: [[0, 'desc']],
         });
