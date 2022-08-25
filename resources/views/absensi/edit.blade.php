@@ -18,7 +18,7 @@
                                         <select class="choices form-select" name="anggota_id" required>
                                           <option value> -- Pilih anggota -- </option>
                                           @foreach ($anggota as $a)
-                                            <option value="{{ $a->id }}">{{ $a->nama }}</option>
+                                            <option value="{{ $a->id }}" {{ $a->id == $idanggota ? 'selected' : ''}}>{{ $a->nama }}</option>
                                           @endforeach
                                         </select>
                                     </div>

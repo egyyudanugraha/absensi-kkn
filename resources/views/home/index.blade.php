@@ -16,10 +16,16 @@
                           </div>
                       </div>
                       <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                          <h6 class="text-muted font-semibold">Saldo</h6>
-                          <h6 class="font-extrabold mb-0">{{ rupiah($saldo) }}</h6>
+                        @if(Auth::check() && Auth::user()->role == "bendahara")
+                            <a href="{{ route('tambah-pemasukan') }}" class="font-semibold">Saldo</a>
+                        @else
+                            <h6 class="text-muted font-semibold">Saldo</h6>
+                        @endif
+                            <h6 class="font-extrabold mb-0">{{ rupiah($saldo) }}</h6>
                       </div>
                   </div>
+                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                    </div>
               </div>
           </div>
       </div>
@@ -33,7 +39,11 @@
                           </div>
                       </div>
                       <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                          <h6 class="text-muted font-semibold">Pengeluaran</h6>
+                        @if(Auth::check() && Auth::user()->role == "bendahara")
+                            <a href="{{ route('tambah-pengeluaran') }}" class="font-semibold">Pengeluaran</a>
+                        @else
+                            <h6 class="text-muted font-semibold">Pengeluaran</h6>
+                        @endif
                           <h6 class="font-extrabold mb-0">{{ rupiah($totalPengeluaran) }}</h6>
                       </div>
                   </div>

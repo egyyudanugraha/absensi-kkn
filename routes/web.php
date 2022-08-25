@@ -20,9 +20,6 @@ use Illuminate\Support\Facades\URL;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Route::get('/', [AbsensiController::class, 'index']);
-// Route::post('/', [AbsensiController::class, 'store']);
-
 Route::middleware(['guest'])->group(function(){
   Route::get('/login', [AuthController::class, 'view_login'])->name('login');
   Route::post('/login', [AuthController::class, 'login'])->name('login_post');
@@ -46,7 +43,10 @@ Route::middleware(['auth', 'checklevel:bendahara'])->group(function(){
 });
 
 Route::middleware(['auth', 'checklevel:sekretaris'])->group(function(){
-  Route::get('/absensi/{id}', [AbsensiController::class,'index']);
+  Route::get('/absensi/{id}', [AbsensiController::class,'index']); // QR Code
+  Route::get('/absensi', [AbsensiController::class, 'view_absen']);
+  // Route::get('/absensi/edit/{id}', [AbsensiController::class, 'edit_absen']);
+  Route::post('/absensi', [AbsensiController::class, 'store']);
 });
 
 Route::middleware(['auth', 'checklevel:bendahara,sekretaris'])->group(function(){
