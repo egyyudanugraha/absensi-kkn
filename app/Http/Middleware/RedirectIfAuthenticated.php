@@ -6,7 +6,6 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\URL;
 
 class RedirectIfAuthenticated
 {
@@ -32,7 +31,6 @@ class RedirectIfAuthenticated
             }
 
             if (Auth::guard($guard)->check()) {
-                URL::forceScheme('https');
                 return redirect(RouteServiceProvider::HOME);
             }
         }

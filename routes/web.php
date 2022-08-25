@@ -4,6 +4,8 @@ use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KasController;
+use App\Models\Absensi;
+use App\Models\Kas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Route::get('/', [AbsensiController::class, 'index']);
+// Route::post('/', [AbsensiController::class, 'store']);
 
 Route::middleware(['guest'])->group(function(){
   Route::get('/login', [AuthController::class, 'view_login'])->name('login');
