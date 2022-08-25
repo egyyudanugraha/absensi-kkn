@@ -28,7 +28,7 @@
               <tr>
                   <td>{{ strlen($item->keterangan) > 30 ? substr($item->keterangan, 0, 30) . '...' : $item->keterangan }}</td>
                   <td>{{ rupiah($item->nominal) }}</td>
-                  <td>{{ date_format($item->created_at,'M d, H:i') }}</td>
+                  <td>{{ date_format($item->created_at,'D, d M, H:i') }}</td>
                   <td class="d-inline-block">
                     <a href="{{ route('edit-pengeluaran', $item->id) }}" class="btn btn-sm btn-primary me-2">Edit</a>
                     <form method="POST" action="{{ route('hapus-pengeluaran', $item->id) }}" class="float-end">

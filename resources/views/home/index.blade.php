@@ -57,7 +57,7 @@
               <tbody>
                 @foreach ($absensi as $item)
                 <tr>
-                    <td>{{ date_format($item->created_at,'M d, H:i') }}</td>
+                    <td>{{ date_format($item->created_at,'D, d M, H:i') }}</td>
                     <td>{{ $item->anggota->nama }}</td>
                     <td><span class="badge bg-{{ $item->status != 'hadir' ? 'danger' : 'success' }}">{{ ucfirst($item->status) }}</span></td>
                 </tr>
@@ -84,7 +84,7 @@
                 <tr>
                     <td>{{ $item->anggota->nama }}</td>
                     <td>{{ rupiah($item->nominal) }}</td>
-                    <td>{{ date_format($item->created_at,'M d, H:i') }}</td>
+                    <td>{{ date_format($item->created_at,'D, d M, H:i') }}</td>
                 </tr>
                 @endforeach
               </tbody>
@@ -109,7 +109,7 @@
                 <tr>
                     <td>{{ strlen($item->keterangan) > 30 ? substr($item->keterangan, 0, 30) . '...' : $item->keterangan }}</td>
                     <td>{{ rupiah($item->nominal) }}</td>
-                    <td>{{ date_format($item->created_at,'M d, H:i') }}</td>
+                    <td>{{ date_format($item->created_at,'D, d M, H:i') }}</td>
                 </tr>
                 @endforeach
               </tbody>

@@ -28,7 +28,7 @@
               <tr>
                   <td>{{ $item->anggota->nama }}</td>
                   <td>{{ rupiah($item->nominal) }}</td>
-                  <td>{{ date_format($item->created_at,'M d, H:i') }}</td>
+                  <td>{{ date_format($item->created_at,'D, d M, H:i') }}</td>
                   <td class="d-inline-block">
                     <a href="{{ route('edit-pemasukan', $item->id) }}" class="btn btn-sm btn-primary me-2">Edit</a>
                     <form method="POST" action="{{ route('hapus-pemasukan', $item->id) }}" class="float-end">
