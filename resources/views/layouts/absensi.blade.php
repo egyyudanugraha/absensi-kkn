@@ -33,9 +33,12 @@
 <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
 <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
 <script>
-    let jquery_datatable = $("#table1").DataTable();
-    let jquery_datatable2 = $("#table2").DataTable();
-    let jquery_datatable3 = $("#table3").DataTable();
+    for (let i = 1; i < 4; i++) {
+        const element = array[i];
+        $(`#table${i}`).DataTable({
+            order: [[0, 'desc']],
+        });
+    }
 </script>
 </body>
 
