@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class HttpsProtocol
 {
@@ -17,10 +18,10 @@ class HttpsProtocol
     public function handle(Request $request, Closure $next)
     {
         if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&  $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'http'
-          && \App::environment() === 'production') {
+          && App::environment() === 'production') {
              return redirect()->secure($request->getRequestUri());
          }
-         
+
         return $next($request);
     }
 }
