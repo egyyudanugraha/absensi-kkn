@@ -32,10 +32,21 @@
 <script src="{{ asset('assets/js/pages/form-element-select.js') }}"></script>
 <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
 <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
 <script>
     for (let i = 1; i < 4; i++) {
         $(`#table${i}`).DataTable({
             order: [[0, 'desc']],
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'excel',
+                    text: 'Export',
+                    className: 'btn btn-primary'
+                }
+            ]
         });
     }
 </script>

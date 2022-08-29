@@ -4,6 +4,10 @@ use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KasController;
+use App\Models\Absensi;
+use App\Models\Anggota;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 
@@ -53,4 +57,13 @@ Route::middleware(['auth', 'checklevel:bendahara,sekretaris'])->group(function()
   Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-// URL::forceScheme('https');
+Route::get('/test-export', function(){
+  $absensi = Anggota::with('absensi')->get();
+
+  return response()->json([
+    'msg' => 'Hello world',
+    'data' => $absensi
+  ]);
+});
+
+URL::forceScheme('https');
