@@ -66,4 +66,4 @@ Route::get('/test-export', function(){
   ]);
 });
 
-// URL::forceScheme('https');
+URL::forceScheme('https');
