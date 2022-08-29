@@ -29,7 +29,8 @@ class AbsensiController extends Controller
 
     public function view_absen(){
         $anggota = Anggota::where('nim', '!=', 1912)->get();
-        return view('absensi.index', compact('anggota'));
+        $absensi = Absensi::with('anggota')->orderby('created_at', 'ASC')->get();
+        return view('absensi.index', compact('anggota', 'absensi'));
     }
 
     // public function edit_absen($id){
@@ -65,5 +66,12 @@ class AbsensiController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Absensi berhasil');
+    }
+
+    public function delete_absen($id)
+    {
+        Absensi::where('id', $id)->firstOrFail()->delete();
+
+        return redirect()->back()->with('success', 'Absensi berhasil dihapus!');
     }
 }

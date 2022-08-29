@@ -49,7 +49,7 @@ Route::middleware(['auth', 'checklevel:bendahara'])->group(function(){
 Route::middleware(['auth', 'checklevel:sekretaris'])->group(function(){
   Route::get('/absensi/{id}', [AbsensiController::class,'index']); // QR Code
   Route::get('/absensi', [AbsensiController::class, 'view_absen']);
-  // Route::get('/absensi/edit/{id}', [AbsensiController::class, 'edit_absen']);
+  Route::delete('/absensi/delete/{id}', [AbsensiController::class, 'delete_absen'])->name('hapus-absen');
   Route::post('/absensi', [AbsensiController::class, 'store']);
 });
 
@@ -66,4 +66,4 @@ Route::get('/test-export', function(){
   ]);
 });
 
-URL::forceScheme('https');
+// URL::forceScheme('https');

@@ -68,6 +68,39 @@
             </div>
         </div>
       </div>
+      <div class="card">
+        <div class="card-header">
+            Riwayat Absensi
+        </div>
+        <div class="card-body">
+            <table class="table table-striped" id="table1">
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Nama</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($absensi as $item)
+                    <tr>
+                        <td>{{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('M d, l, H:i') }}</td>
+                        <td>{{ $item->anggota->nama }}</td>
+                        <td><span class="badge bg-{{ $item->status != 'hadir' ? 'danger' : 'success' }}">{{ ucfirst($item->status) }}</span></td>
+                        <td>
+                            <form method="POST" action="{{ route('hapus-absen', $item->id) }}">
+                                @csrf
+                                <input name="_method" type="hidden" value="DELETE">
+                                <button type="submit" class="btn btn-danger btn-sm me-1 mb-1">Hapus</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        </div>
     </div>
 </div>
 
