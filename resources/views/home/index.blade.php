@@ -4,7 +4,7 @@
   <div class="page-heading mt-5">
     <h3>Ringkasan KKN Suradita 2022</h3>
   </div>
-  <div class="page-content">
+  <div class="page-content mx-2">
     <div class="row">
       <div class="col-6">
           <div class="card">
