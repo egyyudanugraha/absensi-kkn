@@ -43,7 +43,7 @@ class AbsensiController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'status' => 'required',
-            'anggota_id' => 'required',
+            'names' => 'required',
             'tanggal' => 'required'
         ]);
 
@@ -52,18 +52,22 @@ class AbsensiController extends Controller
         }
 
         $tanggal = date_create($request->tanggal);
-        $checkAbsenToday = Absensi::where('anggota_id', $request->anggota_id)->whereDate('created_at', date_format($tanggal, 'Y-m-d'))->first();
-        if ($checkAbsenToday) {
-            return redirect()->back()->with('error', 'Anggota sudah absensi ditanggal tersebut');
+        // $checkAbsenToday = Absensi::where('anggota_id', $request->anggota_id)->whereDate('created_at', date_format($tanggal, 'Y-m-d'))->first();
+        // if ($checkAbsenToday) {
+        //     return redirect()->back()->with('error', 'Anggota sudah absensi ditanggal tersebut');
+        // }
+
+        $data = [];
+        foreach($request->names as $nama) {
+            array_push($data, [
+                'status' => $request->status,
+                'anggota_id' => $nama,
+                'created_at' => date_format($tanggal, 'Y-m-d H:i:s'),
+                'updated_at' => now()
+            ]);
         }
 
-        DB::table('absensis')->insert([
-            'status' => $request->status,
-            'anggota_id' => $request->anggota_id,
-            'alasan' => $request->alasan,
-            'created_at' => date_format($tanggal, 'Y-m-d H:i:s'),
-            'updated_at' => now()
-        ]);
+        DB::table('absensis')->insert($data);
 
         return redirect()->back()->with('success', 'Absensi berhasil');
     }

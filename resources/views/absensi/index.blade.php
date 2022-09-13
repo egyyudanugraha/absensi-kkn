@@ -15,11 +15,11 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="first-name-vertical">Nama</label>
-                                        <select class="choices form-select" name="anggota_id" required>
-                                          <option value> -- Pilih anggota -- </option>
-                                          @foreach ($anggota as $a)
-                                            <option value="{{ $a->id }}">{{ $a->nama }}</option>
-                                          @endforeach
+                                        <select class="choices form-select multiple-remove" name="names[]" multiple="multiple">
+                                            <option value> -- Pilih anggota -- </option>
+                                            @foreach ($anggota as $a)
+                                                <option value="{{ $a->id }}">{{ $a->nama }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
